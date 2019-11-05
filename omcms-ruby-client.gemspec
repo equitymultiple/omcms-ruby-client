@@ -4,17 +4,16 @@ require "omcms/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "omcms-ruby-client"
-  spec.version       = Omcms::Ruby::Client::VERSION
+  spec.version       = OMCMS::VERSION
   spec.authors       = ["Pradeep Rawat"]
   spec.email         = ["pradeep@akaruilabs.com"]
 
-  spec.summary       = %q{Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{A Ruby SDK for OMCMS APIs}
+  spec.description   = %q{omcms-ruby-client make is simpler to use OMCMS connector APIs and integrate with existing Ruby application}
   spec.homepage      = "https://github.com/equitymultiple/omcms-ruby-client"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/equitymultiple/omcms-ruby-client"
-  spec.metadata["changelog_uri"] = "https://github.com/equitymultiple/omcms-ruby-client/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -24,6 +23,9 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "faraday", "~> 0.15"
+  spec.add_dependency "faraday_middleware", "~> 0.13"
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
