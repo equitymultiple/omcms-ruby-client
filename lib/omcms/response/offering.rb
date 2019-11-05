@@ -1,16 +1,16 @@
 module OMCMS
   module Response
     class Offering < Body
-      def initialize(client, data, env)
+      def initialize(client, data, host)
         super
       end
 
       def components
-        OMCMS::Component.new(@client, self.body, @env)
+        OMCMS::Component.new(@client, self.body, @host)
       end
 
       def data
-        OMCMS::OfferingData.new(@client, self.body, @env)
+        OMCMS::OfferingData.new(@client, self.body, @host)
       end
     end
   end

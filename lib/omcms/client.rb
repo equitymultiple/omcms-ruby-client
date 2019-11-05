@@ -1,11 +1,10 @@
 module OMCMS
   class Client
-    attr_reader :client, :offerings
+    attr_reader :client
 
     def initialize(opts)
       configure_credentials(opts)
       configure_client
-      configure_resources
     end
 
     def faraday &block
@@ -24,19 +23,20 @@ module OMCMS
       end
     end
 
-    def configure_resources
-      @offerings = OMCMS::Offering.new(@client, @response, @env)
+    def offerings
+      OMCMS::Offering.new(@client, @response, @host)
     end
 
     private
 
     def configure_credentials(opts)
-      raise ArgumentError.new "Couldn't find credentials" if opts[:public_key].empty? || opts[:private_key].empty?
-      raise ArgumentError.new "Invalid application environment" unless API_URL.has_key? opts[:env]
+      raise ArgumentError.new "Public Key is missing for the OMCMS client" if opts[:public_key].to_s.empty?
+      raise ArgumentError.new "Private Key is missing for the OMCMS client" if opts[:private_key].to_s.empty?
+      raise ArgumentError.new "Host is missing for the OMCMS client" if opts[:host].to_s.empty?
 
       @username = opts[:public_key]
       @password = opts[:private_key]
-      @env = opts[:env]
+      @host = opts[:host]
     end
   end
 end

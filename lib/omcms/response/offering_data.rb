@@ -1,7 +1,7 @@
 module OMCMS
   module Response
     class OfferingData < Body
-      def initialize(client, data, env)
+      def initialize(client, data, host)
         super
       end
     end

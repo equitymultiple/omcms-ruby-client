@@ -1,8 +1,8 @@
 module OMCMS
   class Resource
-    def initialize(client, response = {}, env = nil)
+    def initialize(client, response = {}, host = nil)
       @client = client
-      @env = env
+      @host = host
     end
 
     private
@@ -12,12 +12,12 @@ module OMCMS
     end
 
     def perform_run(instance, path)
-      request_url = [API_URL[@env], path].compact.join("/")
+      request_url = [@host, "api", "apps", path].compact.join("/")
       class_name = instance.class.name.split("::").last
       response = @client.get request_url
 
       return response if response.class == OMCMS::Response::Error
-      response_class(class_name).new(@client, response, @env)
+      response_class(class_name).new(@client, response, @host)
     end
   end
 end

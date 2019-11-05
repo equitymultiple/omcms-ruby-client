@@ -1,6 +1,6 @@
 module OMCMS
   class Component < Resource
-    def initialize(client, response = {}, env)
+    def initialize(client, response = {}, host)
       @offering_id = response["id"]
       super
     end

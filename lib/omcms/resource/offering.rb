@@ -1,6 +1,6 @@
 module OMCMS
   class Offering < Resource
-    def initialize(client, response, env)
+    def initialize(client, response, host)
       super
     end
 

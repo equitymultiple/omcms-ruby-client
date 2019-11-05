@@ -3,7 +3,6 @@ require "faraday_middleware"
 
 require "omcms/client"
 require "omcms/resource"
-require "omcms/constants"
 require "omcms/version"
 
 require "omcms/resource/offering"

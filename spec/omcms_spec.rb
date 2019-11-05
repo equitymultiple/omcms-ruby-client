@@ -1,9 +1,9 @@
 RSpec.describe OMCMS do
   let!(:client) {
     OMCMS::Client.new(
+      host: "http://localhost:8877",
       public_key: "4dac249f03d2463cac37796e9f97fdc6",
-      private_key: "4dd74b2c2e644163bc16291b395ce381",
-      env: "development"
+      private_key: "4dd74b2c2e644163bc16291b395ce381"
     )
   }
 

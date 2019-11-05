@@ -26,9 +26,9 @@ Create a client using your OMCMS connector's public key and private key
 # config/initializers/omcms.rb
 
 $omcms = OMCMS::Client.new(
+  host: ENV["OMCMS_API_HOST"], # http://localhost:8877/api/apps
   public_key: ENV["OMCMS_PUBLIC_KEY"],
-  private_key: ENV["OMCMS_PRIVATE_KEY"],
-  env: Rails.env # valid: production || staging || development
+  private_key: ENV["OMCMS_PRIVATE_KEY"]
 )
 ```
 

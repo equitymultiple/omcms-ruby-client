@@ -3,10 +3,10 @@ module OMCMS
     class Body
       attr_reader :body
 
-      def initialize(client, response, env)
+      def initialize(client, response, host)
         @client = client
         @body = response
-        @env = env
+        @host = host
       end
 
       def to_json
