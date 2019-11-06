@@ -8,7 +8,7 @@ module OMCMS
       perform_run self, request_path()
     end
 
-    def find(id)
+    def get(id)
       perform_run self, request_path(id)
     end
 

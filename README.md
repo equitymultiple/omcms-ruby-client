@@ -26,7 +26,7 @@ Create a client using your OMCMS connector's public key and private key
 # config/initializers/omcms.rb
 
 $omcms = OMCMS::Client.new(
-  host: ENV["OMCMS_API_HOST"], # http://localhost:8877/api/apps
+  host: ENV["OMCMS_API_HOST"], # http://localhost:8877
   public_key: ENV["OMCMS_PUBLIC_KEY"],
   private_key: ENV["OMCMS_PRIVATE_KEY"]
 )
@@ -40,7 +40,7 @@ You can fetch all or specific offering with `OMCMS::Client`
 offerings = $omcms.offerings.all
 # => fetch all offerings available on OMCMS
 
-offering = $omcms.offerings.find(123)
+offering = $omcms.offerings.get(123)
 # => offering(id = 123) fetched from OMCMS
 ```
 
@@ -49,12 +49,12 @@ offering = $omcms.offerings.find(123)
 You can fetch all or specific component with specified `offering`
 
 ```ruby
-offering = $omcms.offerings.find(123)
+offering = $omcms.offerings.get(123)
 
 components = offering.components.all
 # => all components of offering(id = 123)
 
-component = offering.components.find(456)
+component = offering.components.get(456)
 # => component(id = 456) of offering(id = 123)
 ```
 
@@ -63,12 +63,12 @@ component = offering.components.find(456)
 You can fetch all or specific offering_data with specified `offering`
 
 ```ruby
-offering = $omcms.offerings.find(123)
+offering = $omcms.offerings.get(123)
 
 offering_data = offering.data.all
 # => all offering_data of offering(id = 123)
 
-offering_data = offering.data.find(456)
+offering_data = offering.data.get(456)
 # => offering_data(id: 456) of offering(id = 123)
 ```
 
