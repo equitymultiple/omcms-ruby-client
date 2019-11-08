@@ -44,7 +44,7 @@ You can fetch all or specific offering with `OMCMS::Client`
 offerings = $omcms.offerings.all
 # => fetch all offerings available on OMCMS
 
-offering = $omcms.offerings.find(1)
+offering = $omcms.offerings.get(1)
 # => offering(id = 1) fetched from OMCMS
 ```
 
@@ -53,12 +53,12 @@ offering = $omcms.offerings.find(1)
 You can fetch all or specific component with specified `offering`
 
 ```ruby
-offering = $omcms.offerings.find(1)
+offering = $omcms.offerings.get(1)
 
 components = offering.components.all
 # => all components of offering(id = 1)
 
-component = offering.components.find(4)
+component = offering.components.get(4)
 # => component(id = 4) of offering(id = 1)
 ```
 
@@ -67,12 +67,12 @@ component = offering.components.find(4)
 You can fetch all or specific offering_data with specified `offering`
 
 ```ruby
-offering = $omcms.offerings.find(1)
+offering = $omcms.offerings.get(1)
 
 offering_data = offering.data.all
 # => all offering_data of offering(id = 1)
 
-offering_data = offering.data.find(1)
+offering_data = offering.data.get(1)
 # => offering_data(id: 1) of offering(id = 1)
 ```
 

@@ -17,31 +17,31 @@ RSpec.describe OMCMS do
   end
 
   it "can fetch specific offering" do
-    offering = client.offerings.find(1)
+    offering = client.offerings.get(1)
     expect(offering).not_to be nil
   end
 
   it "can fetch all components for specific offering" do
-    offering = client.offerings.find(1)
+    offering = client.offerings.get(1)
     components = offering.components.all
     expect(components).not_to be nil
   end
 
   it "can fetch specific component for specific offering" do
-    offering = client.offerings.find(1)
-    component = offering.components.find(1)
+    offering = client.offerings.get(1)
+    component = offering.components.get(1)
     expect(component).not_to be nil
   end
 
   it "can fetch all offering_data for specific offering" do
-    offering = client.offerings.find(1)
+    offering = client.offerings.get(1)
     offering_data = offering.data.all
     expect(offering_data).not_to be nil
   end
 
   it "can fetch specific offering_data for specific offering" do
-    offering = client.offerings.find(1)
-    offering_data = offering.data.find(1)
+    offering = client.offerings.get(1)
+    offering_data = offering.data.get(1)
     expect(offering_data).not_to be nil
   end
 end
