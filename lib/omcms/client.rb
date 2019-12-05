@@ -15,6 +15,8 @@ module OMCMS
     def configure_client
       @client ||= Faraday.new do |f|
         f.request :basic_auth, @username, @password
+        f.options[:open_timeout] = 2
+        f.options[:timeout] = 5
         f.use SetHeader
         f.use ParseResponse
         f.response :json, :content_type => /\bjson$/

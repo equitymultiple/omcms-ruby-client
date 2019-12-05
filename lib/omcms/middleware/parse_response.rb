@@ -12,6 +12,8 @@ module OMCMS
           return response_env.body
         end
       end
+    rescue => error
+      return OMCMS::Response::Error.new(error)
     end
   end
 end
