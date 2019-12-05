@@ -27,9 +27,9 @@ module OMCMS
       def add_body_to_error(response)
         OpenStruct.new(
           body: {
-            statusCode: 400,
-            name: "Bad Request",
-            message: response
+            name: response.class,
+            message: response.message,
+            data: response
           }
         )
       end

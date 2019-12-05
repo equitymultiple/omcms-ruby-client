@@ -1,7 +1,7 @@
 RSpec.describe OMCMS do
   let!(:client) {
     OMCMS::Client.new(
-      host: ENV["OMCMS_HOST"]
+      host: ENV["OMCMS_HOST"],
       public_key: ENV["OMCMS_PUBLIC_KEY"],
       private_key: ENV["OMCMS_PRIVATE_KEY"]
     )
